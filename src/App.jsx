@@ -14,9 +14,6 @@ function App() {
             <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-sm lg:text-base" href="#partners">Partners</a>
             <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-sm lg:text-base" href="#contact">Contact</a>
           </div>
-          <button className="bg-primary-container hover:opacity-80 transition-all duration-300 text-on-primary font-headline font-bold px-5 sm:px-8 py-2 sm:py-3 rounded-full active:scale-95 text-sm sm:text-base">
-            Inquire Now
-          </button>
         </div>
       </nav>
       <main className="pt-20">
@@ -214,7 +211,7 @@ function App() {
         {/* Contact Section */}
         <section className="py-16 sm:py-20 lg:py-24 bg-on-background relative overflow-hidden" id="contact">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+            <div className="grid grid-cols-1 gap-12 lg:gap-20">
               <div>
                 <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8">Let's Refine Your Systems.</h2>
                 <p className="text-surface/60 text-base sm:text-lg mb-10 sm:mb-12">Reach out to our engineering team for technical consultation or distribution inquiries.</p>
@@ -240,35 +237,6 @@ function App() {
                     </a>
                   </div>
                 </div>
-              </div>
-              <div className="bg-surface p-6 sm:p-8 lg:p-10 rounded-3xl shadow-lg">
-                <form className="space-y-5 sm:space-y-6">
-                  <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                    <div className="flex flex-col gap-2">
-                      <label className="text-xs sm:text-sm font-label text-secondary font-bold uppercase tracking-wider">Full Name</label>
-                      <input className="bg-surface-container-high border-none rounded-xl p-3 sm:p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all text-sm" placeholder="John Doe" type="text"/>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <label className="text-xs sm:text-sm font-label text-secondary font-bold uppercase tracking-wider">Email Address</label>
-                      <input className="bg-surface-container-high border-none rounded-xl p-3 sm:p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all text-sm" placeholder="john@company.com" type="email"/>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="text-xs sm:text-sm font-label text-secondary font-bold uppercase tracking-wider">Subject</label>
-                    <select className="bg-surface-container-high border-none rounded-xl p-3 sm:p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all text-sm">
-                      <option>Technical Specification Inquiry</option>
-                      <option>Wholesale Distribution</option>
-                      <option>Custom Filter Engineering</option>
-                    </select>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="text-xs sm:text-sm font-label text-secondary font-bold uppercase tracking-wider">Project Details</label>
-                    <textarea className="bg-surface-container-high border-none rounded-xl p-3 sm:p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all resize-none text-sm" placeholder="Briefly describe your requirements..." rows="3"></textarea>
-                  </div>
-                  <button type="submit" className="w-full bg-primary-container text-on-primary-container font-headline font-bold py-4 sm:py-5 rounded-full text-base sm:text-lg hover:opacity-90 transition-opacity">
-                    Submit Engineering Request
-                  </button>
-                </form>
               </div>
             </div>
             {/* Decorative SVG */}
