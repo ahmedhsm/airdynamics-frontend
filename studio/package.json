@@ -1,0 +1,17 @@
+{
+  "name": "airdynamics-studio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sanity": "^5.0.0",
+    "styled-components": "^6.4.0"
+  }
+}
