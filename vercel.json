@@ -1,9 +1,4 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "env": {
-    "VITE_SANITY_PROJECT_ID": "@vite_sanity_project_id",
-    "VITE_SANITY_DATASET": "@vite_sanity_dataset",
-    "VITE_SANITY_API_VERSION": "@vite_sanity_api_version"
-  }
+  "installCommand": "npm install"
 }
