@@ -25,7 +25,7 @@ export default function HomePage() {
     <div className="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
       {/* Top Navigation Bar */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-lg shadow-lg shadow-black/5 min-h-[4rem] py-2 sm:py-0">
-        <div className="flex flex-col sm:flex-row items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full gap-2 sm:gap-8 lg:gap-12">
+        <div className="flex flex-col sm:flex-row items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full gap-2 sm:gap-4 md:gap-8">
           
           {/* Logo Section */}
           <div className="flex items-center justify-between w-full sm:w-auto">
@@ -34,18 +34,16 @@ export default function HomePage() {
             </span>
           </div>
 
-          {/* Navigation Links - Visible on both Mobile & Desktop */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6 lg:gap-10">
+          {/* Navigation Links + Admin Button Container */}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6">
             <a className="font-headline tracking-tight font-bold text-[#ff5722] relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-[#ff5722] text-xs sm:text-sm lg:text-base" href="#about">About</a>
             <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#vision">Vision</a>
             <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#products">Products</a>
             <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#partners">Partners</a>
             <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#contact">Contact</a>
-          </div>
-
-          {/* Unified Admin Button - Always visible, pushes to right on desktop */}
-          <div className="sm:ml-auto flex items-center py-1 sm:py-0">
-            <a href="/admin" className="text-[10px] sm:text-xs font-bold text-gray-400 hover:text-[#ff5722] border border-gray-200 dark:border-neutral-800 px-2 py-1 rounded transition-all">
+            
+            {/* Admin Button - Placed right after Contact */}
+            <a href="/admin" className="ml-2 text-[10px] font-bold text-gray-400 hover:text-[#ff5722] border border-gray-200 dark:border-neutral-800 px-2 py-0.5 rounded transition-all whitespace-nowrap">
               ADMIN
             </a>
           </div>
@@ -53,7 +51,7 @@ export default function HomePage() {
         </div>
       </nav>
 
-      <main className="pt-24 sm:pt-20">
+      <main className="pt-28 sm:pt-20">
         <DynamicPage />
       </main>
 
