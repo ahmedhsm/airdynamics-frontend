@@ -8,7 +8,7 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  useCdn: false,
 })
 
 // Helper function to fetch all documents of a specific type
