@@ -123,6 +123,8 @@ export const fetchPageSections = async () => {
     contactDescription,
     contactEmail,
     contactPhone,
+    contactInstagram,
+    contactFacebook,
     partnersHeading,
     partnersDescription,
     partnersList[] {

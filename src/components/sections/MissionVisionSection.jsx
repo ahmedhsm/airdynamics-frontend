@@ -10,7 +10,7 @@ export default function MissionVisionSection({ data }) {
   }
 
   return (
-    <section className="py-24 bg-surface" id="vision">
+    <section className="py-24 bg-surface" id="missionVision">
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 h-full md:h-[600px]">
           <div className="md:col-span-8 bg-on-background rounded-3xl p-12 flex flex-col justify-end overflow-hidden relative group">
