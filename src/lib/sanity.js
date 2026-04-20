@@ -54,7 +54,16 @@ export const fetchProducts = async () => {
     },
     alt,
     techSpecsUrl,
-    order
+    order,
+    subProducts[] {
+      title,
+      description,
+      image {
+        asset -> {
+          url
+        }
+      }
+    }
   }`
   return await client.fetch(query)
 }
@@ -65,6 +74,7 @@ export const fetchPageSections = async () => {
     _id,
     sectionType,
     enabled,
+    navLabel,
     order,
     heroHeading,
     heroHighlight,
@@ -97,7 +107,17 @@ export const fetchPageSections = async () => {
     contactHeading,
     contactDescription,
     contactEmail,
-    contactPhone
+    contactPhone,
+    partnersHeading,
+    partnersDescription,
+    partnersList[] {
+      name,
+      logo {
+        asset -> {
+          url
+        }
+      }
+    }
   }`
   return await client.fetch(query)
 }
