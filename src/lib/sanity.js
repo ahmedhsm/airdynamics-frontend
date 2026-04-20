@@ -68,6 +68,21 @@ export const fetchProducts = async () => {
   return await client.fetch(query)
 }
 
+// Helper function to fetch all strategic partners with images
+export const fetchStrategicPartners = async () => {
+  const query = `*[_type == "strategicPartner"] | order(order asc) {
+    _id,
+    name,
+    image {
+      asset -> {
+        url
+      }
+    },
+    order
+  }`
+  return await client.fetch(query)
+}
+
 // Helper function to fetch all page sections sorted by order
 export const fetchPageSections = async () => {
   const query = `*[_type == "pageSection" && enabled == true] | order(order asc) {
