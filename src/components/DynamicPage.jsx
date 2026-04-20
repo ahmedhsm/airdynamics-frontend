@@ -11,6 +11,7 @@ const sectionComponents = {
   about: AboutSection,
   missionVision: MissionVisionSection,
   products: ProductsSection,
+  partners: PartnersSection,
   contact: ContactSection,
 }
 
@@ -23,14 +24,9 @@ export default function DynamicPage({ sections = [], loading, error }) {
       {sections.map((section) => {
         const SectionComponent = sectionComponents[section.sectionType]
         if (!SectionComponent) return null
-        return (
-          <React.Fragment key={section._id}>
-            <SectionComponent data={section} />
-            {/* Render Strategic Partners right after Products */}
-            {section.sectionType === 'products' && <PartnersSection />}
-          </React.Fragment>
-        )
+        return <SectionComponent key={section._id} data={section} />
       })}
     </>
   )
 }
+
