@@ -143,7 +143,7 @@ export default function Products() {
                   className="w-full py-2.5 px-4 bg-primary text-white rounded-lg font-headline font-bold text-xs flex items-center justify-center gap-2 hover:bg-primary/90 transition-all shadow-lg shadow-primary/10 active:scale-95"
                 >
                   <span className="material-symbols-outlined text-sm">visibility</span>
-                  View Range
+                  View
                 </button>
                 
                 {product.techSpecsUrl && (
