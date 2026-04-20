@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { fetchPageSections } from '../lib/sanity'
+import React from 'react'
 import HeroSection from './sections/HeroSection'
 import AboutSection from './sections/AboutSection'
 import MissionVisionSection from './sections/MissionVisionSection'
@@ -16,27 +15,7 @@ const sectionComponents = {
   contact: ContactSection,
 }
 
-export default function DynamicPage() {
-  const [sections, setSections] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    const getSections = async () => {
-      try {
-        const data = await fetchPageSections()
-        setSections(data)
-      } catch (err) {
-        setError(err.message)
-        console.error('Error fetching sections:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    getSections()
-  }, [])
-
+export default function DynamicPage({ sections = [], loading, error }) {
   if (loading) return <div className="p-4">Loading...</div>
   if (error) return <div className="p-4 text-red-600">Error: {error}</div>
 

@@ -1,8 +1,27 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import DynamicPage from '../components/DynamicPage'
+import { fetchPageSections } from '../lib/sanity'
 
 export default function HomePage() {
+  const [sections, setSections] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
   useEffect(() => {
+    const getSections = async () => {
+      try {
+        const data = await fetchPageSections()
+        setSections(data)
+      } catch (err) {
+        setError(err.message)
+        console.error('Error fetching sections:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    getSections()
+
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1)
       if (hash) {
@@ -36,18 +55,35 @@ export default function HomePage() {
 
           {/* Main Navigation Links */}
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6 lg:gap-10">
-            <a className="font-headline tracking-tight font-bold text-[#ff5722] relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-[#ff5722] text-xs sm:text-sm lg:text-base" href="#about">About</a>
-            <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#vision">Vision</a>
-            <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#products">Products</a>
-            <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#partners">Partners</a>
-            <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#contact">Contact</a>
+            {sections && sections.length > 0 && sections.some(s => s.navLabel) ? (
+              sections
+                .filter(s => s.navLabel && s.sectionType !== 'hero')
+                .map((section) => (
+                  <a 
+                    key={section._id}
+                    className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" 
+                    href={`#${section.sectionType}`}
+                  >
+                    {section.navLabel}
+                  </a>
+                ))
+            ) : (
+              /* Fallback Navigation while loading or if no CMS labels are set yet */
+              <>
+                <a className="font-headline tracking-tight font-bold text-[#ff5722] relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-[#ff5722] text-xs sm:text-sm lg:text-base" href="#about">About</a>
+                <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#vision">Vision</a>
+                <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#products">Products</a>
+                <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#partners">Partners</a>
+                <a className="font-headline tracking-tight font-bold text-[#1a1c1c] dark:text-white hover:text-[#ff5722] transition-colors text-xs sm:text-sm lg:text-base" href="#contact">Contact</a>
+              </>
+            )}
           </div>
           
         </div>
       </nav>
 
       <main className="pt-24 sm:pt-20">
-        <DynamicPage />
+        <DynamicPage sections={sections} loading={loading} error={error} />
       </main>
 
       {/* Footer */}
